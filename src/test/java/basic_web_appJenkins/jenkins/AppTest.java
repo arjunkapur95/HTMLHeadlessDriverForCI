@@ -118,4 +118,39 @@ public class AppTest extends TestCase {
 
 		}	
 	}
+	/**
+	 * Rigourous Test :-)
+	 * 
+	 * @throws URISyntaxException
+	 */
+	public void testAppAusPostFail() throws URISyntaxException {
+		URI serverURL = null;
+
+		serverURL = new URI("https://auspost.com.au/");
+		
+
+			// Open a Chrome browser.
+		WebDriver driver = new HtmlUnitDriver();
+
+		// Initialize the eyes SDK and set your private API key.
+		
+		try {
+			
+			driver.get(serverURL.toString());
+			// Click the "Click me!" button.
+			String text1=driver.findElement(By.cssSelector("#trkb488628-658152")).getText();
+			System.out.println("checkpoint1");
+			assertEquals("Tracdask",text1);
+			System.out.println("checkpoint2");
+
+		} catch (Exception e) {
+			System.out.println("checkpoint3");
+			fail("reached catch exception");
+			e.printStackTrace();
+		} finally {
+			// Close the browser.
+			driver.quit();
+
+		}	
+	}
 }
