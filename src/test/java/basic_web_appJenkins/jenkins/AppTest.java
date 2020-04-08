@@ -74,6 +74,7 @@ public class AppTest extends TestCase {
 			
 
 		} catch (Exception e) {
+			fail("reached catch exception");
 			e.printStackTrace();
 		} finally {
 			// Close the browser.
@@ -87,10 +88,10 @@ public class AppTest extends TestCase {
 	 * 
 	 * @throws URISyntaxException
 	 */
-	public void testAppDOHFail() throws URISyntaxException {
+	public void testAppAusPost() throws URISyntaxException {
 		URI serverURL = null;
 
-		serverURL = new URI("http://www.health.gov.au/");
+		serverURL = new URI("https://auspost.com.au/");
 		
 
 			// Open a Chrome browser.
@@ -102,7 +103,7 @@ public class AppTest extends TestCase {
 			
 			driver.get(serverURL.toString());
 			// Click the "Click me!" button.
-			String text1=driver.findElement(By.className("module-header")).getText();
+			String text1=driver.findElement(By.cssSelector("#trkb488628-658152")).getText();
 		
 			
 			TimeUnit.SECONDS.sleep(3);
@@ -111,10 +112,11 @@ public class AppTest extends TestCase {
 			// End of test.
 			TimeUnit.SECONDS.sleep(1);
 		
-			assertEquals("What can insurance do for you?",text1);
+			assertEquals("Track",text1);
 			
 
 		} catch (Exception e) {
+			fail("reached catch exception");
 			e.printStackTrace();
 		} finally {
 			// Close the browser.
