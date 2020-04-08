@@ -104,18 +104,12 @@ public class AppTest extends TestCase {
 			driver.get(serverURL.toString());
 			// Click the "Click me!" button.
 			String text1=driver.findElement(By.cssSelector("#trkb488628-658152")).getText();
-		
-			
-			TimeUnit.SECONDS.sleep(3);
-			// Visual checkpoint #2.
-			
-			// End of test.
-			TimeUnit.SECONDS.sleep(1);
-		
+			System.out.println("checkpoint1");
 			assertEquals("Track",text1);
-			
+			System.out.println("checkpoint2");
 
 		} catch (Exception e) {
+			System.out.println("checkpoint3");
 			fail("reached catch exception");
 			e.printStackTrace();
 		} finally {
